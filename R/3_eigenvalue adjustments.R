@@ -52,7 +52,7 @@ scaling_factor_kiti<-  max(eigen(manual_50plus_phys_mean, only.values = TRUE)$va
 scaling_factor_kiti
 
 #=-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-#set population
+#set population of new data
 N_new<-N_informal
 
 #Prem old~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

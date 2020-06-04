@@ -14,12 +14,11 @@ boots<-1000
 #' part_age with the estimated age of the participant (integer)
 #' weekday with day of week when survey was done (string Monday - Sunday)
 #setwd("C:/Users/matt_/Google Drive/Research/COVID/Pop council")
+
+
 participants_import_kiti<-read.csv("Data/kiti_data_wide_csv.csv")
-#participants_S1<-data.frame(participants_import)
 participants_kiti<-data.table(participants_import_kiti)
-
 participants_kiti$part_age<-participants_kiti$age_class_part_2
-
 mean(participants_kiti$part_id)
 mean(participants_kiti$part_age)
 participants_kiti$weekday[participants_kiti$day==1]<-"Tuesday"
