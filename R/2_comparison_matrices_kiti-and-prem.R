@@ -223,7 +223,8 @@ prem_temp[3,2]<-5.69
 prem_temp[3,3]<-2.31
 prem_matrix_new<-prem_temp
 
-
+prem_matrix_new<-t(prem_matrix_new)
+prem_matrix_old<-t(prem_matrix_old)
 #'~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #'
 #'              Adjusting for age dists between settings

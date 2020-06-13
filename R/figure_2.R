@@ -1,7 +1,7 @@
 #defaulting titles to centre
 theme_update(plot.title = element_text(hjust = 0.5))
 
-contacts<- read.csv("Data/imputed_justcategory.csv")
+contacts<- read.csv("Data/imputed_justcategory_60plus.csv")
 #only contacts that we have individual-level detail on
 contacts_det<-subset(contacts, contacts$contact_detail==1)
 contacts_hh<-subset(contacts, contacts$contact_kind=="Household Contacts")
@@ -13,7 +13,7 @@ contacts_nonhh$q5_place_contact[contacts_nonhh$q5_place_contact=="Community Buil
 contacts_nonhh$q5_place_contact[contacts_nonhh$q5_place_contact=="Medical setting (e.g. hospital)"]<-"Other indoor place"
 contacts_nonhh$q5_place_contact[contacts_nonhh$q5_place_contact=="Bodaboda"]<-"Other outdoor place"
 unique(contacts_nonhh$q5_place_contact)
-contacts_nonhh$q5_place_contact[contacts_nonhh$q5_place_contact=="At home or someone elseâ€™s house"]<-"A house"
+contacts_nonhh$q5_place_contact[contacts_nonhh$q5_place_contact=="At home or someone elseâ???Ts house"]<-"A house"
 
 contacts_nonhh$q7_masks[contacts_nonhh$q7_masks=="Respondent only"]<-"Me only"
 contacts_nonhh$q7_masks[contacts_nonhh$q7_masks=="Contact only"]<-"Other person only"
@@ -74,6 +74,8 @@ nonhh_place<-ggplot(data = contacts_nonhh) +
   coord_cartesian(ylim = c(0, .85))
 nonhh_place
 
+unique(contacts_nonhh$q6_duration)
+contacts_nonhh$q6_duration<-factor(contacts_nonhh$q6_duration,levels = c("< 5 mins","5 - 14 mins","15 - 59 mins","1 - 4 hours","More than 4 hours"))
 nonhh_duration<-ggplot(data = contacts_nonhh) + 
   theme_bw() +
   theme(plot.title = element_text(hjust = 0.5))+
@@ -82,6 +84,9 @@ nonhh_duration<-ggplot(data = contacts_nonhh) +
   ggtitle("Contact duration")+theme(axis.text.x = element_text(angle = 90, hjust = 1))+
   coord_cartesian(ylim = c(0, .85))
 nonhh_duration
+
+unique((contacts_nonhh$q6_duration
+        ))
 
 nonhh_masks<-ggplot(data = contacts_nonhh) + 
   theme_bw() +
@@ -102,7 +107,7 @@ nonhh_masks
 nonhh_figs<-cowplot::plot_grid(nonhh_sex, nonhh_phys,nonhh_masks, nonhh_place,nonhh_duration, align = "h", ncol = 5)
 
 figure_contact_chars <- ggarrange(hh_figs,nonhh_figs,
-                          labels = c("Household", "Non-household"),  vjust=4, hjust=4,
+                          labels = c("A", "B"),  vjust=0.7, hjust=0,
                           ncol = 1, nrow = 2)
 figure_contact_chars
 

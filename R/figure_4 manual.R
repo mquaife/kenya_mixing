@@ -43,7 +43,7 @@ phys_plot
 plot_kiti <- melt(adjusted_matrix_kiti, varnames = c("age1", "age2"), value.name = "contacts")
 kiti_plot<-ggplot(plot_kiti, aes(x = age2, y = age1, fill = contacts)) + theme(legend.position = "bottom") + 
   theme_bw() +
-  ggtitle("B - Adjusted matrix from Kiti et al. (2014) - physical contacts")+
+  ggtitle("B - Adjusted physical matrix from Kiti et al. (2014)")+
   theme(legend.position = "bottom") + 
   labs(fill="Contacts")+scale_x_discrete(labels=age_labels)+
  scale_y_discrete(labels=age_labels)+xlab("Contact age") + ylab("Respondent age")+

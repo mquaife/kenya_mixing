@@ -1,12 +1,15 @@
 library(data.table)
 
+#Set working directory to wherever github lives
+setwd("C:/Users/matt_/Google Drive/Research/github/kenya_mixing")
+
+
 ##########################################################################
 #' participants is a data.table with the following columns
 #' part_id for participant id (integer)
 #' part_age with the estimated age of the participant (integer)
 #' weekday with day of week when survey was done (string Monday - Sunday)
 #' 
-setwd("C:/Users/Matt/Google Drive/Research/github/kenya_mixing")
 
 participants_import<- read.csv("Data/mixing_module_dataset_may1420_wide.csv")
 participants_S1<-data.table(participants_import)

@@ -205,5 +205,106 @@ adj_r0_df %>%
             lower = mean(s) - qnorm(.975)*std/sqrt(n()),
             upper = mean(s) + qnorm(.975)*std/sqrt(n()))
 
+quantile(adjusted_r0_kiti)
+quantile(adjusted_r0_prem_old)
+quantile(adjusted_r0_prem_new)
 
+mean(adjusted_r0_kiti)
+mean(adjusted_r0_prem_old)
+mean(adjusted_r0_prem_new)
+
+#calculating initial R0 for new R0 to be =1
+1/mean(scaling_factor_kiti)
+1/mean(scaling_factor_prem_old)
+1/mean(scaling_factor_prem_new)
+
+#'~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#'
+#'              
+#'              Calculating low bound of R0 using first Rt estimate
+#'
+#'
+#'~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+#' get distribution of R0
+#' this is the distribution we used based on the meta-analysis Amy did, but may want to use something Kenya specific if available?
+r_values_lowr0 <- rnorm(1000, 1.46, 0.38)
+
+#removing NA values (comparing with adjusted kiti and prem matrices with missing components also)
+for (i in 1:length(manual_50plus)){
+  manual_50plus[[i]]$all[,1]<-0}
+
+for (i in 1:length(manual_50plus_phys)){
+  manual_50plus_phys[[i]]$all[,1]<-0}
+
+
+#calculating scaling factors for each bootstrapped matrix
+
+r0_scaling_prem_new <- sapply(
+  1:length(manual_50plus),
+  function(x){
+    max(Re(eigen(manual_50plus[[x]]$all)$values[1]))/max(Re(eigen(prem_new_comp)$values[1]))
+  }
+)
+
+r0_scaling_prem_old <- sapply(
+  1:length(manual_50plus),
+  function(x){
+    max(Re(eigen(manual_50plus[[x]]$all)$values[1]))/max(Re(eigen(prem_old_comp)$values[1]))
+  }
+)
+
+r0_scaling_kiti <- sapply(
+  1:length(manual_50plus),
+  function(x){
+    max(Re(eigen(manual_50plus_phys[[x]]$all)$values[1]))/max(Re(eigen(kiti_matrix_comp)$values[1]))
+  }
+)
+
+
+adjusted_r0_prem_new_lowr0<-r0_scaling_prem_new*r_values_lowr0
+adjusted_r0_prem_old_lowr0<-r0_scaling_prem_old*r_values_lowr0
+adjusted_r0_kiti_lowr0<-r0_scaling_kiti*r_values_lowr0
+
+mean(adjusted_r0_prem_new_lowr0)
+mean(adjusted_r0_prem_old_lowr0)
+mean(adjusted_r0_kiti_lowr0)
+
+adj_r0_df_lowr0<- data.frame(r_values_lowr0, adjusted_r0_prem_new_lowr0, adjusted_r0_prem_old_lowr0, adjusted_r0_kiti_lowr0)
+
+head(adj_r0_df_lowr0)
+
+quantile(adjusted_r0_kiti_lowr0)
+quantile(adjusted_r0_prem_old_lowr0)
+quantile(adjusted_r0_prem_new_lowr0)
+
+
+s<- adjusted_r0_kiti_lowr0
+adj_r0_df_lowr0 %>%
+  summarise(mean(s),
+            std = sqrt(var(s)),
+            lower = mean(s) - qnorm(.975)*std/sqrt(n()),
+            upper = mean(s) + qnorm(.975)*std/sqrt(n()))
+
+s<- adjusted_r0_prem_new_lowr0
+adj_r0_df_lowr0 %>%
+  summarise(mean(s),
+            std = sqrt(var(s)),
+            lower = mean(s) - qnorm(.975)*std/sqrt(n()),
+            upper = mean(s) + qnorm(.975)*std/sqrt(n()))
+
+s<- adjusted_r0_prem_old_lowr0
+adj_r0_df_lowr0 %>%
+  summarise(mean(s),
+            std = sqrt(var(s)),
+            lower = mean(s) - qnorm(.975)*std/sqrt(n()),
+            upper = mean(s) + qnorm(.975)*std/sqrt(n()))
+
+quantile(adjusted_r0_kiti_lowr0)
+quantile(adjusted_r0_prem_old_lowr0)
+quantile(adjusted_r0_prem_new_lowr0)
+
+mean(adjusted_r0_kiti_lowr0)
+mean(adjusted_r0_prem_old_lowr0)
+mean(adjusted_r0_prem_new_lowr0)
 

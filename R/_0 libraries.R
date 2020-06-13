@@ -19,9 +19,6 @@ library(data.table)
 library(scales)
 library(readxl)
 library(ggeasy)
-library(xlsx)
-library(grid.arrange)
-
 
 
 #Functions

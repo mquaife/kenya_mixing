@@ -78,9 +78,9 @@ p2 <- density_prem
 r0_estimates<-grid.arrange(
   grobs = list(p1, p2),
   # widths = c(1, 1, 1),
-  layout_matrix = rbind(c(1),
-                        c(2))
+  layout_matrix = rbind(c(2),
+                        c(1))
 )
 
-ggsave(filename = "C:/Users/matt_/Google Drive/Research/COVID/Pop council/kenyamix/outputs/Fig_5_r0_estimates.png", r0_estimates, width = 5, height = 9, dpi = 1000)
+ggsave(filename = "outputs/Fig_5_r0_estimates.png", r0_estimates, width = 5, height = 5, dpi = 1000)
 r0_estimates

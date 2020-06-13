@@ -133,7 +133,7 @@ hist_plot<-ggplot(data = wide_data) +
   theme(plot.title = element_text(hjust = 0.5))+
   geom_bar(mapping = aes(x = n_contacts, y = ..count.., group = 1), stat = "count")+
   scale_y_continuous(name="Number of respondents")+  scale_x_continuous(name="Number of contacts")+  
-  ggtitle("Distribution of contacts")+theme(axis.text.x = element_text(angle = 90, hjust = 1))+
+  #ggtitle("Distribution of contacts")+theme(axis.text.x = element_text(angle = 90, hjust = 1))+
   geom_vline(xintercept = 17.88,color="black")+
   geom_text(aes(x=19, label="mean: 18", y=12), colour="black", angle=90)
 hist_plot

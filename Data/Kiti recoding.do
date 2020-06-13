@@ -1,4 +1,4 @@
-cd "C:\Users\matt_\Google Drive\Research\COVID\Pop council\kenyamix"
+cd "C:\Users\Matt\Google Drive\Research\github\kenya_mixing"
 
 import delimited "Data\kiti mixing data.CSV", clear
 
