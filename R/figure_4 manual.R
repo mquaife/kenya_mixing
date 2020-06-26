@@ -46,7 +46,7 @@ kiti_plot<-ggplot(plot_kiti, aes(x = age2, y = age1, fill = contacts)) + theme(l
   ggtitle("B - Adjusted physical matrix from Kiti et al. (2014)")+
   theme(legend.position = "bottom") + 
   labs(fill="Contacts")+scale_x_discrete(labels=age_labels)+
- scale_y_discrete(labels=age_labels)+xlab("Contact age") + ylab("Respondent age")+
+ scale_y_discrete(labels=age_labels)+xlab("Respondent age") + ylab("Contact age")+
   geom_tile()+
   geom_text(aes(label = round(contacts,digits=1))) +
   scale_fill_gradientn(
@@ -62,7 +62,7 @@ plot_imputed_kiti<-ggplot(plot_allages_kiti, aes(x = age2, y = age1, fill = cont
   theme_bw() +
   ggtitle("C - Imputed physical matrix using Kiti et al. (2014)")+
   theme(legend.position = "bottom") + 
-  labs(fill="Contacts")+scale_x_discrete(labels=age_labels)+ scale_y_discrete(labels=age_labels)+xlab("Contact age") + ylab("Respondent age")+
+  labs(fill="Contacts")+scale_x_discrete(labels=age_labels)+ scale_y_discrete(labels=age_labels)+xlab("Respondent age") + ylab("Contact age")+
   geom_tile()+
   geom_text(aes(label = round(contacts,digits=1))) +
   scale_fill_gradientn(
@@ -80,7 +80,7 @@ all_plot<-ggplot(plot_physonly, aes(x = age2, y = age1, fill = contacts)) + them
   theme_bw() +
   theme(legend.position = "bottom") + 
   labs(fill="Contacts")+scale_x_discrete(labels=age_labels)+
-  scale_y_discrete(labels=age_labels)+xlab("Contact age") + ylab("Respondent age")+
+  scale_y_discrete(labels=age_labels)+xlab("Respondent age") + ylab("Contact age")+
   geom_tile()+
   geom_text(aes(label = round(contacts,digits=1))) +
   scale_fill_gradientn(
@@ -97,7 +97,7 @@ prem_plot<-ggplot(plot_prem, aes(x = age2, y = age1, fill = contacts)) + theme(l
   ggtitle("E - Adjusted matrix from Prem et al (2020)")+
   theme(legend.position = "bottom") + 
   labs(fill="Contacts")+scale_x_discrete(labels=age_labels)+ 
-  xlab("Contact age") + ylab("Respondent age")+
+  xlab("Respondent age") + ylab("Contact age")+
   geom_tile()+
   geom_text(aes(label = round(contacts,digits=1))) +
   scale_fill_gradientn(
@@ -113,7 +113,7 @@ plot_imputed_prem<-ggplot(plot_allages_prem, aes(x = age2, y = age1, fill = cont
   theme_bw() +
   ggtitle("F - Imputed matrix using Prem et al. (2020)")+
   theme(legend.position = "bottom") + 
-  labs(fill="Contacts")+scale_x_discrete(labels=age_labels)+ scale_y_discrete(labels=age_labels)+xlab("Contact age") + ylab("Respondent age")+
+  labs(fill="Contacts")+scale_x_discrete(labels=age_labels)+ scale_y_discrete(labels=age_labels)+xlab("Respondent age") + ylab("Contact age")+
   geom_tile()+
   geom_text(aes(label = round(contacts,digits=1))) +
   scale_fill_gradientn(
